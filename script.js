@@ -34,6 +34,10 @@ function updateDisplay() {
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
+        // Trigger vibration if supported
+        if (navigator.vibrate) {
+            navigator.vibrate(50); // Vibrate for 50ms
+        }
         const value = button.textContent;
 
         if (currentInput === "Error" && value !== "AC") return;
